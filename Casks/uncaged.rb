@@ -43,7 +43,10 @@ cask "uncaged" do
   # No autoupdate feed: Uncaged ships with autoupdate disabled. `brew upgrade`
   # is the supported update path once the tap is bumped.
   auto_updates false
-  depends_on macos: ">= :mojave" # matches the 10.14 MACOSX_DEPLOYMENT_TARGET
+  # NOTE: no `depends_on macos:` minimum — modern Homebrew disabled the
+  # minimum-version constraint for casks (there is no replacement). The app
+  # targets macOS 10.14+ (MACOSX_DEPLOYMENT_TARGET); older systems simply
+  # can't launch it, which macOS itself enforces.
 
   app "Uncaged.app"
 
