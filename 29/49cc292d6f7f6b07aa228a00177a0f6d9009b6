@@ -1,0 +1,21 @@
+Casks/uncaged.rb
+  s_3e4cc0ba3e0ede::t_bc43290d6e388b 29
+  s_3e4cc0ba3e0ede::t_e498f68bdd1ede 34
+  s_3e4cc0ba3e0ede::t_ebc7f873824b59 23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "2949cc292d6f7f6b07aa228a00177a0f6d9009b6",
+  "prompts": {},
+  "sessions": {
+    "s_3e4cc0ba3e0ede": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3e772dcd-0cc7-45ef-b232-59d0e8d0d1c9",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Anton Arnaudov <anton.arnaudov.me@gmail.com>"
+    }
+  }
+}
