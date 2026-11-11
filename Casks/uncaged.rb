@@ -20,18 +20,18 @@ cask "uncaged" do
   # (e.g. tag v0.2.3 -> version "0.2.3"). Pinned to the current release; on each
   # new release, bump `version` and both per-arch `sha256` below to that tag's
   # DMG checksums (see "Updating the cask").
-  version "0.3.4"
+  version "0.3.5"
 
   # Per-arch DMGs (there is no universal DMG). Homebrew picks the block matching
   # the host. The download URL points at a versioned release asset (not /latest/)
   # so Homebrew can verify the checksum deterministically.
   on_arm do
-    sha256 "61ef500d192ee4940a6a1528d366554c5efa79e0fb1086943cac2e47b4be0c80"
+    sha256 "c1d6622f17814d89809fd4a7c3126778364a13a4f416f28e023347312b052797"
     url "https://github.com/getuncaged/uncaged/releases/download/v#{version}/Uncaged-macos-aarch64.dmg",
         verified: "github.com/getuncaged/uncaged/"
   end
   on_intel do
-    sha256 "fd16004fd20805fa72fa1dd9ec31fba7c69375b3d430ed18a6dd98a28b4ac92a"
+    sha256 "614a3692a6300523e4eecb79753922a72e1c98b1662e6166d68b7c8b5f09dcc1"
     url "https://github.com/getuncaged/uncaged/releases/download/v#{version}/Uncaged-macos-x86_64.dmg",
         verified: "github.com/getuncaged/uncaged/"
   end
@@ -62,9 +62,15 @@ cask "uncaged" do
 
   # Remove Uncaged's user data on `brew uninstall --zap uncaged`. Uncaged stores
   # everything under ~/.uncaged and namespaces app-support/caches/prefs by its
-  # bundle id dev.uncaged.WarpOss.
+  # bundle id dev.uncaged.Uncaged (dev.uncaged.WarpOss up to 0.3.4; 0.3.5 moves
+  # that data and leaves links behind, so both are listed).
   zap trash: [
     "~/.uncaged",
+    "~/Library/Application Support/dev.uncaged.Uncaged",
+    "~/Library/Caches/dev.uncaged.Uncaged",
+    "~/Library/Preferences/dev.uncaged.Uncaged.plist",
+    "~/Library/Saved Application State/dev.uncaged.Uncaged.savedState",
+    "~/Library/Logs/dev.uncaged.Uncaged",
     "~/Library/Application Support/dev.uncaged.WarpOss",
     "~/Library/Caches/dev.uncaged.WarpOss",
     "~/Library/Preferences/dev.uncaged.WarpOss.plist",
